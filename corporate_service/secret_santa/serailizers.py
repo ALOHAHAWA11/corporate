@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Profile, Wish, WishStatus, SantaMatch
+from .models import Profile, Wish, WishStatus, SantaMatch, SantaCase
 
 
 class ProfileSerializer(serializers.ModelSerializer):
@@ -23,4 +23,10 @@ class WishStatusSerializer(serializers.ModelSerializer):
 class SantaMatchSerializer(serializers.ModelSerializer):
     class Meta:
         model = SantaMatch
+        fields = '__all__'
+
+
+class SantaCaseSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = SantaCase
         fields = '__all__'

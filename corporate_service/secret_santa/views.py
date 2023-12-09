@@ -1,24 +1,30 @@
-from rest_framework import generics
-from .models import Profile, Wish, WishStatus, SantaMatch
+from rest_framework import viewsets
+from .models import Profile, Wish, WishStatus, SantaMatch, SantaCase
 from .serailizers import (ProfileSerializer, WishSerializer,
-                          WishStatusSerializer, SantaMatchSerializer)
+                          WishStatusSerializer, SantaMatchSerializer,
+                          SantaCaseSerializer)
 
 
-class ProfileAPIView(generics.ListAPIView):
+class ProfileViewSet(viewsets.ModelViewSet):
     queryset = Profile.objects.all()
     serializer_class = ProfileSerializer
 
 
-class WishAPIView(generics.ListAPIView):
+class WishViewSet(viewsets.ModelViewSet):
     queryset = Wish.objects.all()
     serializer_class = WishSerializer
 
 
-class WishStatusAPIView(generics.ListAPIView):
+class WishStatusViewSet(viewsets.ModelViewSet):
     queryset = WishStatus.objects.all()
     serializer_class = WishStatusSerializer
 
 
-class SantaMatchAPIView(generics.ListAPIView):
+class SantaMatchViewSet(viewsets.ModelViewSet):
     queryset = SantaMatch.objects.all()
     serializer_class = SantaMatchSerializer
+
+
+class SantaCaseViewSet(viewsets.ModelViewSet):
+    queryset = SantaCase.objects.all()
+    serializer_class = SantaCaseSerializer
